@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>María & José</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Georgia, serif;
+            background-color: #f8eee8;
+            color: #5c4033;
+            text-align: center;
+        }
+
+        .invitacion {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 55px;
+            margin: 10px;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: normal;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        #contador {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+#contador div {
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    min-width: 60px;
+}
+
+#contador span {
+    display: block;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#contador small {
+    font-size: 12px;
+}
+        .boton {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 14px 30px;
+            background-color: #5c4033;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+        }
+
+    </style>
+</head>
+<script>
+
+    const fechaBoda = new Date("December 15, 2026 00:00:00").getTime();
+
+    const contador = setInterval(function() {
+
+        const ahora = new Date().getTime();
+
+        const distancia = fechaBoda - ahora;
+
+        const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+        const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+        const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+        document.getElementById("dias").textContent = dias;
+        document.getElementById("horas").textContent = horas;
+        document.getElementById("minutos").textContent = minutos;
+        document.getElementById("segundos").textContent = segundos;
+
+    }, 1000);
+
+</script>
+<body>
+
+    <div class="invitacion">
+
+        <h2>¡Nos casamos!</h2>
+
+        <h1>María & José</h1>
+
+        <p>15 de diciembre de 2026</p>
+        <div id="contador">
+    <div>
+        <span id="dias">00</span>
+        <small>Días</small>
+    </div>
+
+    <div>
+        <span id="horas">00</span>
+        <small>Horas</small>
+    </div>
+
+    <div>
+        <span id="minutos">00</span>
+        <small>Minutos</small>
+    </div>
+
+    <div>
+        <span id="segundos">00</span>
+        <small>Segundos</small>
+    </div>
+</div>
+
+        <a href="#" class="boton">Ver ubicación</a>
+
+    </div>
+
+</body>
+
+</html>
