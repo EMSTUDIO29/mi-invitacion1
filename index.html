@@ -5,135 +5,927 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>María & José</title>
+    <title>María & José | Nuestra boda</title>
 
     <style>
+
+        * {
+            box-sizing: border-box;
+        }
 
         body {
             margin: 0;
             font-family: Georgia, serif;
-            background-color: #f8eee8;
-            color: #5c4033;
-            text-align: center;
+            color: white;
         }
 
-        .invitacion {
+        .portada {
             min-height: 100vh;
+            background-image:
+                linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+                url("imagenes/portada.jpg");
+
+            background-size: cover;
+            background-position: center;
+
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
+            text-align: center;
+
             padding: 30px;
-            box-sizing: border-box;
+        }
+
+        .contenido {
+            max-width: 700px;
+        }
+
+        .texto-pequeno {
+            font-size: 22px;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
         }
 
         h1 {
-            font-size: 55px;
-            margin: 10px;
-        }
-
-        h2 {
-            font-size: 24px;
+            font-size: 70px;
             font-weight: normal;
+            margin: 10px 0;
         }
 
-        p {
-            font-size: 18px;
+        .fecha {
+            font-size: 22px;
+            margin-top: 20px;
         }
 
-        #contador {
+        .boton {
+            transition: transform 0.3s ease;
+            display: inline-block;
+            margin-top: 35px;
+            padding: 15px 35px;
+
+            background: rgba(255,255,255,0.9);
+            color: #5c4033;
+
+            text-decoration: none;
+            border-radius: 30px;
+
+            font-size: 16px;
+        }
+.boton,
+.boton-mapa,
+.boton-whatsapp {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.boton:hover,
+.boton-mapa:hover,
+.boton-whatsapp:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+        .boton:hover {
+            background: white;
+        }
+.invitacion {
+    min-height: 80vh;
+    background: #f8eee8;
+    color: #5c4033;
+
     display: flex;
-    gap: 15px;
+    flex-direction: column;
     justify-content: center;
-    margin-top: 25px;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 70px 25px;
+}
+
+.invitacion h2 {
+    font-size: 40px;
+    font-weight: normal;
+    margin: 20px 0;
+}
+
+.invitacion p {
+    max-width: 650px;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.frase {
+    font-style: italic;
+}
+
+.datos {
+    display: flex;
+    gap: 50px;
+    margin-top: 35px;
+}
+
+.datos div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.datos strong {
+    font-size: 32px;
+    font-weight: normal;
+}
+
+.datos span {
+    font-size: 16px;
+}
+.cuenta {
+    background: #efe0d5;
+    color: #5c4033;
+    text-align: center;
+    padding: 70px 20px;
+}
+
+.cuenta > p {
+    letter-spacing: 4px;
+    font-size: 15px;
+}
+
+#contador {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
 }
 
 #contador div {
-    background: white;
-    padding: 15px;
-    border-radius: 12px;
-    min-width: 60px;
+    min-width: 80px;
+}
+
+#contador strong {
+    display: block;
+    font-size: 38px;
+    font-weight: normal;
 }
 
 #contador span {
-    display: block;
-    font-size: 28px;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 600px) {
+
+    #contador {
+        gap: 10px;
+    }
+
+    #contador div {
+        min-width: 65px;
+    }
+
+    #contador strong {
+        font-size: 28px;
+    }
+
+}
+.galeria {
+    background: #f8eee8;
+    color: #5c4033;
+    text-align: center;
+    padding: 80px 25px;
+}
+
+.titulo-seccion {
+    letter-spacing: 4px;
+    font-size: 14px;
+}
+
+.galeria h2 {
+    font-size: 34px;
+    font-weight: normal;
+    margin-bottom: 40px;
+}
+
+.fotos {
+    max-width: 1000px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.fotos img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+@media (max-width: 700px) {
+
+    .fotos {
+        grid-template-columns: 1fr;
+    }
+
+    .fotos img {
+        height: 400px;
+    }
+
+}
+.ubicacion {
+    background: #efe0d5;
+    color: #5c4033;
+    text-align: center;
+    padding: 80px 25px;
+}
+
+.ubicacion h2 {
+    font-size: 38px;
+    font-weight: normal;
+    margin: 15px 0;
+}
+
+.lugar {
+    font-size: 22px;
     font-weight: bold;
 }
 
-#contador small {
-    font-size: 12px;
-}
-        .boton {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 14px 30px;
-            background-color: #5c4033;
-            color: white;
-            text-decoration: none;
-            border-radius: 30px;
-        }
+.boton-mapa {
+    transition: transform 0.3s ease;
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 30px;
 
+    background: #5c4033;
+    color: white;
+
+    text-decoration: none;
+    border-radius: 30px;
+}
+.boton:hover {
+    transform: translateY(-3px);
+}
+.confirmacion {
+    background: #f8eee8;
+    color: #5c4033;
+    text-align: center;
+    padding: 80px 25px;
+}
+
+.confirmacion h2 {
+    font-size: 38px;
+    font-weight: normal;
+}
+
+.boton-whatsapp {
+    transition: transform 0.3s ease;
+    display: inline-block;
+    margin-top: 25px;
+    padding: 15px 30px;
+
+    background: #5c4033;
+    color: white;
+
+    text-decoration: none;
+    border-radius: 30px;
+}
+.boton:hover {
+    transform: translateY(-3px);
+}
+.historia {
+    background: #f8eee8;
+    color: #5c4033;
+    padding: 90px 25px;
+}
+
+.historia-contenido {
+    max-width: 1000px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 60px;
+
+    align-items: center;
+}
+
+.historia-texto {
+    text-align: center;
+}
+
+.historia-texto h2 {
+    font-size: 40px;
+    font-weight: normal;
+    margin: 20px 0;
+}
+
+.historia-texto p:not(.titulo-seccion) {
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.historia-foto img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.vestimenta {
+    background: #f8eee8;
+    color: #5c4033;
+    text-align: center;
+    padding: 90px 25px;
+}
+
+.vestimenta h2 {
+    font-size: 42px;
+    font-weight: normal;
+    margin: 20px 0;
+}
+
+.vestimenta > p:not(.titulo-seccion) {
+    max-width: 600px;
+    margin: auto;
+    line-height: 1.8;
+}
+
+.vestimenta-iconos {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    margin-top: 45px;
+}
+
+.vestimenta-iconos span {
+    font-size: 45px;
+}
+
+.vestimenta-iconos p {
+    margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+
+    .vestimenta-iconos {
+        gap: 40px;
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .historia-contenido {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .historia-texto h2 {
+        font-size: 32px;
+    }
+
+    .historia-foto img {
+        height: 400px;
+    }
+
+}
+.itinerario {
+    background: #efe0d5;
+    color: #5c4033;
+    text-align: center;
+    padding: 90px 25px;
+}
+
+.itinerario h2 {
+    font-size: 40px;
+    font-weight: normal;
+    margin-bottom: 50px;
+}
+
+.eventos {
+    max-width: 700px;
+    margin: auto;
+}
+
+.evento {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 30px;
+
+    text-align: left;
+
+    padding: 25px 0;
+
+    border-bottom: 1px solid rgba(92,64,51,0.2);
+}
+
+.hora {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.evento h3 {
+    margin: 0 0 8px;
+    font-size: 22px;
+    font-weight: normal;
+}
+
+.evento p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+
+    .evento {
+        grid-template-columns: 1fr;
+        gap: 5px;
+    }
+
+}
+.regalos {
+    background: #efe0d5;
+    color: #5c4033;
+    text-align: center;
+    padding: 90px 25px;
+}
+
+.regalos h2 {
+    font-size: 36px;
+    font-weight: normal;
+    max-width: 650px;
+    margin: 20px auto;
+}
+
+.regalos > p:not(.titulo-seccion) {
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+.boton-regalos {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 15px 30px;
+
+    background: #5c4033;
+    color: white;
+
+    text-decoration: none;
+    border-radius: 30px;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.boton-regalos:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.cierre {
+    position: relative;
+
+    min-height: 600px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    overflow: hidden;
+}
+
+.cierre img {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    z-index: 0;
+
+    filter: brightness(0.6);
+}
+
+.cierre-texto {
+    position: relative;
+    z-index: 1;
+
+    color: white;
+
+    max-width: 600px;
+    padding: 30px;
+}
+
+.cierre-texto p {
+    font-size: 22px;
+    line-height: 1.8;
+}
+
+.cierre-texto h2 {
+    font-size: 50px;
+    font-weight: normal;
+    margin: 30px 0 10px;
+}
+
+.cierre-texto span {
+    letter-spacing: 4px;
+}
+        @media (max-width: 600px) {
+
+            h1 {
+                font-size: 48px;
+            }
+
+            .texto-pequeno {
+                font-size: 17px;
+            }
+
+            .fecha {
+                font-size: 18px;
+            }
+
+        }
+.boton-musica {
+    transition: transform 0.3s ease;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+
+    border: none;
+    border-radius: 30px;
+    padding: 12px 18px;
+
+    background: rgba(255,255,255,0.9);
+    color: #5c4033;
+
+    cursor: pointer;
+    font-size: 14px;
+}
+.boton:hover {
+    transform: translateY(-3px);
+}
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.contenido {
+    animation: aparecer 1.5s ease;
+}
+.fotos img {
+    transition: transform 0.4s ease;
+}
+
+.fotos img:hover {
+    transform: scale(1.03);
+}
     </style>
 </head>
+
+<body>
+   
+<audio id="musica" loop>
+    <source src="imagenes/musica.mp3" type="audio/mpeg">
+</audio>
+
+<button class="boton-musica" onclick="alternarMusica()">
+    🎵 Música
+</button>
+    <section class="portada">
+
+        <div class="contenido">
+
+            <div class="texto-pequeno">
+                ¡NOS CASAMOS!
+            </div>
+
+            <h1>María & José</h1>
+
+            <div class="fecha">
+                15 de diciembre de 2026
+            </div>
+
+            <a href="#invitacion" class="boton">
+                Ver invitación
+            </a>
+
+        </div>
+
+    </section>
+<section class="invitacion" id="invitacion">
+
+    <p class="frase">
+        Hay momentos en la vida que merecen ser compartidos,
+        personas que hacen que cada instante sea especial
+        y un día que queremos recordar para siempre.
+    </p>
+
+    <h2>María & José</h2>
+
+    <p>
+        Tenemos el honor de invitarte a celebrar con nosotros
+        el comienzo de una nueva etapa.
+    </p>
+
+    <div class="datos">
+
+        <div>
+            <strong>15</strong>
+            <span>Diciembre</span>
+            <span>2026</span>
+        </div>
+
+        <div>
+            <strong>7:00 PM</strong>
+            <span>Hora</span>
+        </div>
+
+    </div>
+
+</section>
+<section class="cuenta">
+
+    <p>FALTAN</p>
+
+    <div id="contador">
+
+        <div>
+            <strong id="dias">00</strong>
+            <span>Días</span>
+        </div>
+
+        <div>
+            <strong id="horas">00</strong>
+            <span>Horas</span>
+        </div>
+
+        <div>
+            <strong id="minutos">00</strong>
+            <span>Minutos</span>
+        </div>
+
+        <div>
+            <strong id="segundos">00</strong>
+            <span>Segundos</span>
+        </div>
+
+    </div>
+
+</section>
 <script>
 
-    const fechaBoda = new Date("December 15, 2026 00:00:00").getTime();
+const fechaEvento = new Date("December 15, 2026 19:00:00").getTime();
 
-    const contador = setInterval(function() {
+setInterval(function() {
 
-        const ahora = new Date().getTime();
+    const ahora = new Date().getTime();
 
-        const distancia = fechaBoda - ahora;
+    const diferencia = fechaEvento - ahora;
 
-        const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
-        const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
-        const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+    const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
 
-        document.getElementById("dias").textContent = dias;
-        document.getElementById("horas").textContent = horas;
-        document.getElementById("minutos").textContent = minutos;
-        document.getElementById("segundos").textContent = segundos;
+    const horas = Math.floor(
+        (diferencia % (1000 * 60 * 60 * 24))
+        / (1000 * 60 * 60)
+    );
 
-    }, 1000);
+    const minutos = Math.floor(
+        (diferencia % (1000 * 60 * 60))
+        / (1000 * 60)
+    );
+
+    const segundos = Math.floor(
+        (diferencia % (1000 * 60))
+        / 1000
+    );
+
+    document.getElementById("dias").textContent = dias;
+    document.getElementById("horas").textContent = horas;
+    document.getElementById("minutos").textContent = minutos;
+    document.getElementById("segundos").textContent = segundos;
+
+}, 1000);
 
 </script>
-<body>
+<section class="galeria">
 
-    <div class="invitacion">
+    <p class="titulo-seccion">NUESTROS MOMENTOS</p>
 
-        <h2>¡Nos casamos!</h2>
+    <h2>Un poquito de nuestra historia</h2>
 
-        <h1>María & José</h1>
+    <div class="fotos">
 
-        <p>15 de diciembre de 2026</p>
-        <div id="contador">
-    <div>
-        <span id="dias">00</span>
-        <small>Días</small>
-    </div>
+        <img src="imagenes/foto1.jpg" alt="Foto de María y José">
 
-    <div>
-        <span id="horas">00</span>
-        <small>Horas</small>
-    </div>
+        <img src="imagenes/foto2.jpg" alt="Foto de María y José">
 
-    <div>
-        <span id="minutos">00</span>
-        <small>Minutos</small>
-    </div>
-
-    <div>
-        <span id="segundos">00</span>
-        <small>Segundos</small>
-    </div>
-</div>
-
-        <a href="#" class="boton">Ver ubicación</a>
+        <img src="imagenes/foto3.jpg" alt="Foto de María y José">
 
     </div>
 
+</section>
+<section class="ubicacion">
+
+    <p class="titulo-seccion">¿DÓNDE CELEBRAREMOS?</p>
+
+    <h2>Recepción</h2>
+
+    <p class="lugar">
+        Hacienda Los Jardines
+    </p>
+
+    <p>
+        Av. Ejemplo 123, Lima
+    </p>
+
+    <a
+        href="https://www.google.com/maps"
+        target="_blank"
+        class="boton-mapa">
+        📍 Ver ubicación
+    </a>
+
+</section>
+<section class="confirmacion">
+
+    <p class="titulo-seccion">¿NOS ACOMPAÑAS?</p>
+
+    <h2>Confirma tu asistencia</h2>
+
+    <p>
+        Nos encantará compartir este día tan especial contigo.
+    </p>
+
+    <a
+        href="https://wa.me/51999999999?text=Hola%2C%20quiero%20confirmar%20mi%20asistencia%20a%20la%20boda%20de%20Mar%C3%ADa%20y%20Jos%C3%A9."
+        target="_blank"
+        class="boton-whatsapp">
+        💬 Confirmar asistencia
+    </a>
+
+</section>
+<script>
+
+function alternarMusica() {
+
+    const musica = document.getElementById("musica");
+
+    if (musica.paused) {
+        musica.play();
+    } else {
+        musica.pause();
+    }
+
+}
+
+</script>
+<section class="historia">
+
+    <div class="historia-contenido">
+
+        <div class="historia-texto">
+
+            <p class="titulo-seccion">NUESTRA HISTORIA</p>
+
+            <h2>Un amor para celebrar</h2>
+
+            <p>
+                Nuestra historia comenzó con un encuentro inesperado
+                que poco a poco se convirtió en una hermosa historia de amor.
+            </p>
+
+            <p>
+                Hoy queremos compartir contigo uno de los días más
+                importantes de nuestras vidas.
+            </p>
+
+        </div>
+
+        <div class="historia-foto">
+
+            <img src="imagenes/foto2.jpg" alt="Nuestra historia">
+
+        </div>
+
+    </div>
+
+</section>
+<section class="itinerario">
+
+    <p class="titulo-seccion">EL GRAN DÍA</p>
+
+    <h2>Itinerario</h2>
+
+    <div class="eventos">
+
+        <div class="evento">
+            <div class="hora">5:00 PM</div>
+            <div>
+                <h3>Ceremonia</h3>
+                <p>Comenzamos este día tan especial.</p>
+            </div>
+        </div>
+
+        <div class="evento">
+            <div class="hora">7:00 PM</div>
+            <div>
+                <h3>Recepción</h3>
+                <p>Compartiremos una noche inolvidable.</p>
+            </div>
+        </div>
+
+        <div class="evento">
+            <div class="hora">8:00 PM</div>
+            <div>
+                <h3>Cena</h3>
+                <p>Una cena para celebrar juntos.</p>
+            </div>
+        </div>
+
+        <div class="evento">
+            <div class="hora">9:30 PM</div>
+            <div>
+                <h3>Celebración</h3>
+                <p>¡Es hora de celebrar!</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<section class="vestimenta">
+
+    <p class="titulo-seccion">CÓDIGO DE VESTIMENTA</p>
+
+    <h2>Elegante</h2>
+
+    <p>
+        Queremos que nos acompañes luciendo tu mejor estilo
+        para celebrar juntos este día tan especial.
+    </p>
+
+    <div class="vestimenta-iconos">
+
+        <div>
+            <span>👗</span>
+            <p>Vestido elegante</p>
+        </div>
+
+        <div>
+            <span>🤵</span>
+            <p>Traje formal</p>
+        </div>
+
+    </div>
+
+</section>
+<section class="regalos">
+
+    <p class="titulo-seccion">MESA DE REGALOS</p>
+
+    <h2>Tu presencia es nuestro mejor regalo</h2>
+
+    <p>
+        Si deseas tener un detalle con nosotros,
+        puedes encontrar nuestra mesa de regalos aquí.
+    </p>
+
+    <a
+        href="#"
+        class="boton-regalos">
+        🎁 Ver mesa de regalos
+    </a>
+
+</section>
+<section class="cierre">
+
+    <img src="imagenes/foto3.jpg" alt="María y José">
+
+    <div class="cierre-texto">
+
+        <p>
+            Gracias por acompañarnos
+            en uno de los días más importantes
+            de nuestras vidas.
+        </p>
+
+        <h2>María & José</h2>
+
+        <span>15 · 12 · 2026</span>
+
+    </div>
+
+</section>
 </body>
 
 </html>
